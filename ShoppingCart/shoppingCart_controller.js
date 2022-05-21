@@ -60,7 +60,7 @@ app.get("/cartDetail/:id", (req,res) => {
         if(cart){
             res.json(cart);
         }else{
-            res.sendStatus(404);
+            res.sendStatus(404); 
         }
         
     }).catch(err => {
