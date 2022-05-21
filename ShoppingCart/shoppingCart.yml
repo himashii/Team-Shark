@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Scripts
+      run: 
+        docker build -t shoppingcart2-service
+        docker login -u navo99 -p himashi616
+        docker tag shoppingcart2-service:latest navo99/shoppingcart2-service
+        docker push navo99/shoppingcart2-service
